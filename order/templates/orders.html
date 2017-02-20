@@ -14,12 +14,17 @@ Enter Details
 <form method="POST" action="#"> 
 
 
-Customer ID <br><input type="number" name="customer_id" size="40"><br> 
-Order Type <br><input type="text" name="order_type" size="40"><br>
- <br><input type="text" name="name" size="40"><br>  
+Customer Name <br><input type="text" name="customer_name" size="40"><br> 
+<p>
+             <label>Order Type</label>
+             <select id = "order_type" name="order_type">
+               <option value = "Purchase">Purchase</option>
+               <option value = "Sell">Sell</option>
+             </select>
+          </p>
 
 
-<input id="button" type="submit" name="submit" value="Log-In"> 
+<input id="button" type="submit" name="submit" value="proceed"> 
 
 </form> 
 </fieldset> 

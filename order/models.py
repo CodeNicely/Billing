@@ -6,8 +6,8 @@ from django.db import models
 
 
 class order_data(models.Model):
-	customer_id=models.IntegerField()
-	order_type=models.CharField(max_length=120,null=True,blank=True)
+	customer_name=models.CharField(max_length=120,null=True,blank=True)
+	order_type=models.CharField(max_length=120,null=True,blank=True,choices=[('Purchase', 'Purchase'), ('Sell', 'Sell')])
 	tax=models.CharField(max_length=120,null=True,blank=True)
 	sub_total=models.FloatField(max_length=120)
 	tax_total=models.FloatField(max_length=120)
