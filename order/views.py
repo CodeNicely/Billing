@@ -7,7 +7,7 @@ def order_home(request):
 	if request.method=='GET':
 		return render(request,"orders.html",{})		
 		
-	else:
+	
 
 		
 		
