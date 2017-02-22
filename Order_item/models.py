@@ -4,7 +4,7 @@ from django.db import models
 
 class Order_item(models.Model):
       order_id=models.IntegerField()
-      item_id=models.IntegerField()
+      item_id=models.IntegerField(null=True)
       created=models.IntegerField()
       modified=models.IntegerField()
       price=models.FloatField()

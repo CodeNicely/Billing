@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'Tax',
     'Tax_Table',
     'Expense_Table',
+    'city',
+    'unit',
 ]
 
 MIDDLEWARE = [
