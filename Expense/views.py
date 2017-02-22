@@ -19,8 +19,26 @@ def expense(request):
 
 		expense_data.objects.create(title=title,description=description,amount=amount)
 
+		data=expense_data.objects.all()
+
+
+
+		expense_array=[] 
+
+		for x in data:
+			expense_object={}
+			expense_object["title"]=x.title
+			expense_object["description"]=x.description
+			expense_object["amount"]=x.amount
+			expense_array.append(expense_object)			
+
+
+
 		sumq=expense_data.objects.aggregate(Sum('amount'))
 
 		print sumq
 
-		return render(request,"expense.html",{})
+		return render(request,"expense.html",{ "expense_array": expense_array })
+
+
+
