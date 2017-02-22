@@ -4,4 +4,4 @@ from django.apps import AppConfig
 
 
 class ExpenseTableConfig(AppConfig):
-    name = 'Expense_Table'
+    name = 'Expense'

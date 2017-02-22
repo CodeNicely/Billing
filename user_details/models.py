@@ -5,7 +5,7 @@ from django.db import models
 # Create your models here.
 
 class user_data(models.Model):
-	user_id=models.AutoField(primary_key=True,default=True)
+	user_id=models.IntegerField(primary_key=True,default=True)
 	user_name=models.CharField(max_length=120,null=True,blank=True)
 	mobile=models.IntegerField()
 	email=models.EmailField()

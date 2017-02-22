@@ -43,9 +43,10 @@ INSTALLED_APPS = [
     'Order_item',
     'Tax',
     'Tax_Table',
-    'Expense_Table',
     'city',
     'unit',
+    'Expense',
+
 ]
 
 MIDDLEWARE = [
