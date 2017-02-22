@@ -14,7 +14,16 @@ Enter Details
 <form method="POST" action="#"> 
 
 
-Customer Name <br><input type="text" name="customer_name" size="40"><br> 
+	<input list="browsers", name ="customer_name">
+
+<datalist id="browsers">
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Google Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+
 <p>
              <label>Order Type</label>
              <select id = "order_type" name="order_type">

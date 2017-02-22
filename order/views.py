@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from user_details.models import *
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
@@ -8,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def order_home(request):
 	if request.method=='GET':
+
 		return render(request,"orders.html",{})		
 		
 	else:
@@ -23,18 +25,18 @@ def order_home(request):
 
 
 			if customer_from_db.customer_name==customer_id and order_type_db.order_type==order_type:
-				info = order_data.objects.all()
+				info = order_data.objects.get(customer_name=customer_id)
 
-				print "hello"
-				print info
-				print str(info)
-				print len(info)
+				response={}
+				response["name"]=info.customer_name
+				
 
-				return render(request,"testing.html",{"info":info})
+				return render(request,"testing.html",{"response":response})
 				
 				
 		except Exception,e:
-			print "Error"
+			print "Error",str(e)
+
 
 		
 
