@@ -1,16 +1,43 @@
 <html>
 
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
 <script>
 
+$( document ).ready(function() {
 
 
-{{  info |  safe }}
+  var response_data=  {{ expense_array | safe }};
+
+
+
+  for (var i = 0; i<response_data.length ; i++) {
+
+    var obj = response_data[i];
+
+   
+   document.getElementById("show_title").innerHTML = obj['title'];
+   document.getElementById("show_description").innerHTML = obj['description'];
+   document.getElementById("show_amount").innerHTML = obj['amount'];
+   
+  // document.getElementById("description").innerHTML = obj['description'];
+  // document.getElementById("description").innerHTML = obj['description'];
+
+ }
+
+  
+   
+});
+
 
 
 </script>
 
+<p id='show_title'>  </p>
+<p id='show_description'>  </p>
+<p id='show_amount'>  </p>
 
-
-
+</head>
 
 </html>

@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render 
 from Expense.models import *
 from django.db.models import Sum
@@ -30,15 +31,16 @@ def expense(request):
 			expense_object["title"]=x.title
 			expense_object["description"]=x.description
 			expense_object["amount"]=x.amount
-			expense_array.append(expense_object)			
+			expense_array.append(expense_object)
 
+		data = json.dumps(expense_array)
 
 
 		sumq=expense_data.objects.aggregate(Sum('amount'))
 
 		print sumq
 
-		return render(request,"expense.html",{ "expense_array": expense_array })
+		return render(request,"show_expense.html",{ "expense_array": data })
 
 
 

@@ -4,6 +4,9 @@
 	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:900|Raleway:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="style.css">
 
+
+
+
 <style>
 ul {
     list-style-type: none;
@@ -62,12 +65,11 @@ li a:hover {
             <div class="card-content white-text">
               <span class="card-title">Card Title</span>
               <h3>Enter your expense</h3>
-              <form method="POST">
+              <form method="POST" acction="show_expense.html">
                     Title <input type="text" name="title" size="40"><br> 
               Description <input type="text" name="description" size="40"><br> 
               Amount <input type="number" name="amount" size="40"><br> 
               <input id="button" type="submit" name="submit" value="Add">
-
               </form>
             </div>
             <div class="card-action">
@@ -77,37 +79,6 @@ li a:hover {
         </div>
       </div>
       <hr>
-
-      <div class="row" elevation="10">
-        <div class="col s12 m6">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Card Title</span>
-              
-              <h3 align='left'>Title</h3>
-              <h3 align='left'>Description</h3>
-              <h3 align='left'>Amount</h3>
-
-            </div>
-            <div class="card-action">
-              
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    
-
-<p>    {{  expense_array | safe }}   </p>
-
-
-
-
-
-
-
-
 
 </head>
 </body>
