@@ -31,7 +31,7 @@ def order_home(request):
 				response["name"]=info.customer_name
 				
 
-				return render(request,"testing.html",{"response":response})
+				return render(request,"other_order.html",{"response":response})
 				
 				
 		except Exception,e:

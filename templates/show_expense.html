@@ -1,42 +1,146 @@
 <html>
 
+<title>Expenses</title>
+
+
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/static/materialize/css/materialize.min.css"  media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="/static/materialize/css/colour.css"  media="screen,projection"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script type="text/javascript" src="/static/js/jquery-2.1.1.min.js"></script>
+
+
+
 <head>
+
+<link rel="stylesheet" href="static/show_expences.css" />
+
+<body>
+
+
+    <div id="showData"></div>
+</body>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
-<script>
+<script type="text/javascript">
+
+// $( document ).ready(function() {
+
+
+//   var response_data=  {{ expense_array | safe }};
+
+
+
+//   for (var i = 0; i<response_data.length ; i++) {
+
+//     var obj = response_data[i];
+
+   
+//    document.getElementById("show_title").innerHTML = obj['title'];
+//    document.getElementById("show_description").innerHTML = obj['description'];
+//    document.getElementById("show_amount").innerHTML = obj['amount'];
+//  }
+
+  
+   
+// });
 
 $( document ).ready(function() {
 
 
   var response_data=  {{ expense_array | safe }};
+        
+
+        // EXTRACT VALUE FOR HTML HEADER. 
+        // ('Book ID', 'Book Name', 'Category' and 'Price')
+       //  var col = [];
+       //  for (var i =response_data.length;i>0 ;i--) {
+       //      for (var key in response_data[i]) {
+       //          if (col.indexOf(key) === -1) {
+       //              col.push(key);
+       //          }
+       //      }
+       //  }
+
+        
+       // var table = document.getElementById("table");
 
 
+       //  var tr = table.insertRow(-1);                   
 
-  for (var i = 0; i<response_data.length ; i++) {
+       //  for (var i = 0; i < col.length; i++) {
+       //      var th = document.createElement("th"); 
+       //      th.innerHTML = col[i];
+       //      tr.appendChild(th);
+       //  }
 
-    var obj = response_data[i];
+ 
+       //  for (var i = 0; i < response_data.length; i++) {
+
+       //      tr = table.insertRow(-1);
+
+       //      for (var j = 0; j < col.length; j++) {
+       //          var tabCell = tr.insertCell(-1);
+       //          tabCell.innerHTML = response_data[i][col[j]];
+       //      }
+       //  }
+
+      
+       //  var divContainer = document.getElementById("showData");
+       //  divContainer.innerHTML = "        ";
+       //  divContainer.appendChild(table);
+    
 
    
-   document.getElementById("show_title").innerHTML = obj['title'];
-   document.getElementById("show_description").innerHTML = obj['description'];
-   document.getElementById("show_amount").innerHTML = obj['amount'];
-   
-  // document.getElementById("description").innerHTML = obj['description'];
-  // document.getElementById("description").innerHTML = obj['description'];
 
- }
 
-  
-   
+
+
+
+    for(var i=0;i<response_data.length;i++){
+      //  var obj=response_data[i];
+        var table_row =''
+        table_row+='<tr><td>'+response_data[i]['title']+'</td>';
+        table_row+='<td>'+response_data[i]['description']+'</td>';
+        table_row+='<td>'+response_data[i]['amount']+'</td></tr>';
+    
+       
+
+        $("#table1").append(table_row);
+        
+}
+
 });
-
-
 
 </script>
 
-<p id='show_title'>  </p>
+<!--  <div id="showData"> <br></div> --> 
+
+<!-- <p id='show_title'>  </p>
 <p id='show_description'>  </p>
-<p id='show_amount'>  </p>
+<p id='show_amount'>  </p> -->
+
+
+
+<!-- Table is creating here  -->
+
+
+
+<table id = "table1"  class = "bordered">
+    <thead>
+          <tr>
+              <th data-field="title">Title</th>
+              <th data-field="description">Description</th>
+              <th data-field="amount">Amount</th>
+          </tr>
+        </thead>
+
+ </table>
+
+
+
+
 
 </head>
 

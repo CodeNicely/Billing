@@ -7,9 +7,9 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 @csrf_exempt
-def expense(request):
+def add_expense(request):
 	if request.method=='GET':
-		return render(request,"expense.html",{})
+		return render(request,"add_expense.html",{})
 
 	else:
 
@@ -20,27 +20,57 @@ def expense(request):
 
 		expense_data.objects.create(title=title,description=description,amount=amount)
 
-		data=expense_data.objects.all()
+		# data=expense_data.objects.all()
 
 
 
-		expense_array=[] 
+		# expense_array=[] 
 
-		for x in data:
-			expense_object={}
-			expense_object["title"]=x.title
-			expense_object["description"]=x.description
-			expense_object["amount"]=x.amount
-			expense_array.append(expense_object)
+		# for x in data:
+		# 	expense_object={}
+		# 	expense_object["title"]=x.title
+		# 	expense_object["description"]=x.description
+		# 	expense_object["amount"]=x.amount
+		# 	expense_array.append(expense_object)
+
+		# data = json.dumps(expense_array)
+
+
+		# sumq=expense_data.objects.aggregate(Sum('amount'))
+
+
+
+		return render(request,"add_expense.html",{})
+
+
+
+#"expense_array": data
+
+
+
+def show_expense(request):
+	data=expense_data.objects.all()
+	expense_array=[]
+	for x in data:
+		expense_object={}
+		expense_object["title"]=x.title
+		expense_object["description"]=x.description
+		expense_object["amount"]=x.amount
+		expense_object["created"]=str(x.created)
+		expense_object["modified"]=str(x.modified)
+		expense_array.append(expense_object)
 
 		data = json.dumps(expense_array)
 
 
 		sumq=expense_data.objects.aggregate(Sum('amount'))
 
-		print sumq
-
-		return render(request,"show_expense.html",{ "expense_array": data })
+	return render(request,"show_expense.html",{"expense_array": data})
 
 
 
+
+
+
+def testing1(request):
+	return render(request,"testing.html",{})
