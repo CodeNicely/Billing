@@ -57,7 +57,9 @@ def show_expense(request):
 		expense_object["description"]=x.description
 		expense_object["amount"]=x.amount
 		expense_object["created"]=str(x.created)
+		expense_object["created"]=expense_object["created"][0:16]
 		expense_object["modified"]=str(x.modified)
+		expense_object["modified"]=expense_object["modified"][0:16]
 		expense_array.append(expense_object)
 
 		data = json.dumps(expense_array)
