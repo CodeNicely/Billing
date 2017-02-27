@@ -22,12 +22,14 @@ from Expense.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^orders/$', order_home),
     url(r'^testing/$', testing1),
     # url(r'^selling/$', selling),
     # url(r'^purchase/$', purchase),
     url(r'^add_expense/$', add_expense),
     url(r'^show_expense/$', show_expense),
+    url(r'^place_orders/$', place_orders),
+    #url(r'^filtered_expense/$', filter_data),
+
 ]
 
 

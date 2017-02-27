@@ -1,0 +1,84 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+
+
+function place_order()
+{
+	var qty=document.getElementById("quantity").value;
+	var price=document.getElementById("price").value;
+	var i=1;
+
+	var total = qty * price;
+	alert(total);
+	$("#total").append(total);
+
+
+}
+
+
+
+
+
+</script>
+
+
+
+
+</head>
+
+
+
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/static/materialize/css/materialize.min.css"  media="screen,projection"/>
+<link type="text/css" rel="stylesheet" href="/static/materialize/css/colour.css"  media="screen,projection"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+
+
+    <div class="row">
+        <div class="col s14 m3"></div>
+        <div class="col s14 m6">
+<form method="POST">
+<input type="text" id="customer_name"  placeholder="Customer Name" class="tags">
+
+
+<div>
+
+     <div class="row" >
+        <div class="col s12 m2"></div>
+        <div class="col s12 m8">
+          <div class="card white darken-1" background-color="#FFD700" >
+           <div>
+           	
+          <input type="text" id = "item_name" name = "item_name" placeholder="Item name" class="tags">
+          <input type="number" id = "quantity" name = "quantity" placeholder="Quantity" class="tags">
+          <input type="number" id = "price" name = "price" placeholder="Price" class="tags">
+          <!-- <input type="text" id = "unit" placeholder="Unit" class="tags"> -->
+          <button class="btn" type= "submit" name="submit" onclick="place_order()" >Add</button>
+          </form>
+      </div>
+          
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
+
+<p id ="total">Total :    0</p>
+
+ 
+  </div>           
+
+
+
+
+
+
+
+</html>

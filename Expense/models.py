@@ -6,5 +6,5 @@ class expense_data(models.Model):
 	title=models.CharField(max_length=100)
 	description=models.TextField(max_length=200)
 	amount=models.FloatField()
-	created=models.DateTimeField(auto_now_add=False)
-	modified=models.DateTimeField(auto_now_add=False)
+	created=models.DateField(auto_now_add=True)
+	modified=models.DateField(auto_now_add=True)

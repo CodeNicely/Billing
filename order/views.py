@@ -1,46 +1,30 @@
 from django.shortcuts import render
 from .models import *
-from user_details.models import *
 from django.views.decorators.csrf import csrf_exempt
-
+from user_details.models import user_data
+from Order_item.models import Order_item
 # Create your views here.
 
 
 @csrf_exempt
-def order_home(request):
+def place_orders(request):
 	if request.method=='GET':
-
-		return render(request,"orders.html",{})		
-		
+		render(request,"place_orders.html",{})
 	else:
-		customer_id=request.POST.get("customer_name")
-		order_type = request.POST.get("order_type")
+		customer_name=request.POST.get("customer_name")
+		price=request.POST.get("price")
+		quantity = request.POST.get("quantity")
+		item_name = request.POST.get("item_name")
+		
+		print customer_name,price,quantity,item_name
 
-		print customer_id,order_type
+		i=1;
 
-
-		try: 
-			customer_from_db = order_data.objects.get(customer_name=customer_id)
-			order_type_db = order_data.objects.get(order_type=order_type)
-
-
-			if customer_from_db.customer_name==customer_id and order_type_db.order_type==order_type:
-				info = order_data.objects.get(customer_name=customer_id)
-
-				response={}
-				response["name"]=info.customer_name
-				
-
-				return render(request,"other_order.html",{"response":response})
-				
-				
-		except Exception,e:
-			print "Error",str(e)
-
+		 
+ 
+	return render(request,"place_orders.html",{})
 
 		
 
 
 
-def testing(request):
-	return render(request,"other_order.html",{})
