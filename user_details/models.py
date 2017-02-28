@@ -4,7 +4,7 @@ from django.db import models
 
 # Create your models here.
 class user_data(models.Model):
-	user_id=models.IntegerField()
+	user_id=models.IntegerField(primary_key=True)
 	user_name=models.CharField(max_length=120)
 	mobile=models.IntegerField()
 	email=models.EmailField()

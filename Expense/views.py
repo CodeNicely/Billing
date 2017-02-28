@@ -53,7 +53,7 @@ def show_expense(request):
 	start_date=request.POST.get("start_date")
 	end_date=request.POST.get("end_date")
 
-	filtered_data = expense_data.objects.filter(created__range=["start_date", "end_date"])
+	
 
 
 
