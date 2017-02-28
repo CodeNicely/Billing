@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from user_details.models import user_data
 from order.models import order_data_purchase
 from item.models import item_data
+import random
 # Create your views here.
 
 
@@ -19,18 +20,19 @@ def place_orders(request):
 		
 		total = float(quantity)*float(price)
 
-		i=1;
+		rand = random.randint(100,999)
+		order_id = "BS"+str(rand)
 
-		print total
-
-		id_from_itemtable=request.objects.get()
-
-		order_data_purchase.objects.create(order_id=i,customer_name=customer_name,sub_total=total)
-		rder_item.objects.create(order_id=1)
+		print order_id
 
 		
 
-		Order_item.objects.create(order_id=i)
+		order_data_purchase.objects.create(customer_name=customer_name,sub_total=total,item_name=item_name,order_id=order_id)
+		
+
+		item_list=item_data.objects.values_list(item_name)
+		print item_list
+
  
 	return render(request,"place_orders.html",{})
 
