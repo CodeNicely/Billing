@@ -7,8 +7,6 @@
 
 function place_order()
 {
-
-
 	
   var customer_name=document.getElementById("customer_name").value;
   var tax_id=document.getElementById("tax_id").value;
@@ -34,10 +32,23 @@ function place_order()
   }
 
 
-  alert(item_list[1]['item_name']);
+  alert(item_list[0].item_name);
+  alert(item_list[0].quantity);
+  alert(item_list[1].item_name);
+  alert(item_list[2].item_name);
 
 
+  var form = $('<form></form>');
 
+    form.attr("method", "post");
+
+    var field = $('<input></input>');
+
+    field.attr("customer_name",customer_name );
+    field.attr("tax_id",tax_id );
+    field.attr("item_list",item_list);
+    form.append(field);
+  
 
 }
 
