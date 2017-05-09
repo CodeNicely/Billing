@@ -4,6 +4,8 @@
 
 <script type="text/javascript">
 
+var i=1;
+
 
 function place_order()
 {
@@ -11,46 +13,26 @@ function place_order()
   var customer_name=document.getElementById("customer_name").value;
   var tax_id=document.getElementById("tax_id").value;
 
-  
 
-  var item_name;
-  var quantity;
-  var price;
-
-  var item_list=[];
+  // var item_list=[];
 
 
-  for(var i=1;i<=3;i++)
-  {
-    var obj={};
-    obj['item_name']=document.getElementById("item_name"+i.toString()).value;
-    obj['quantity']=document.getElementById("quantity"+i.toString()).value;
-    obj['price']=document.getElementById("price"+i.toString()).value;
+  // for(var i=1;i<=3;i++)
+  // {
+  //   var obj={};
+  //   obj['item_name']=document.getElementById("item_name"+i.toString()).value;
+  //   obj['quantity']=document.getElementById("quantity"+i.toString()).value;
+  //   obj['price']=document.getElementById("price"+i.toString()).value;
 
-    item_list.push(obj);
+  //   item_list.push(obj);
 
-  }
+  // }
 
-
-  alert(item_list[0].item_name);
-  alert(item_list[0].quantity);
-  alert(item_list[1].item_name);
-  alert(item_list[2].item_name);
-
-
-  var form = $('<form></form>');
-
-    form.attr("method", "post");
-
-    var field = $('<input></input>');
-
-    field.attr("customer_name",customer_name );
-    field.attr("tax_id",tax_id );
-    field.attr("item_list",item_list);
-    form.append(field);
-  
-
-}
+   var tag = '<tr> <td><input type="text" id="item_name'+i+'" list="json-datalist" placeholder="Add Products Here" class="tags"></td>'
+       tag+='<td><input type="number" id="quantity'+i+'" value=1 class="quantity" min=0></td>'
+       tag+='<td><input class="blue-text text-darken-2" type="number" id="price'+i+'" disabled></td></tr>'
+       $("#mytable").append(tag);
+       i=i+1;
 
 
 </script>
@@ -89,24 +71,12 @@ function place_order()
           <div class="card white darken-1" background-color="#FFD700" >
            <div class="row">
             <table><tr><td>         	
-          <input type="text" id = "item_name1" name = "item_name" placeholder="Item name"></td><td>
-          <input type="number" id = "quantity1" name = "quantity" placeholder="Quantity"></td><td>
-          <input type="number" id = "price1" name = "price" placeholder="Price"></td></tr>
+          <input type="text" id = "item_name" name = "item_name" placeholder="Item name"></td><td>
+          <input type="number" id = "quantity" name = "quantity" placeholder="Quantity"></td><td>
+          <input type="number" id = "price" name = "price" placeholder="Price"></td></tr>
           <!-- <input type="text" id = "unit" placeholder="Unit" class="tags"> -->
           </table>
-          <table><tr><td>           
-          <input type="text" id = "item_name2" name = "item_name" placeholder="Item name"></td><td>
-          <input type="number" id = "quantity2" name = "quantity" placeholder="Quantity"></td><td>
-          <input type="number" id = "price2" name = "price" placeholder="Price"></td></tr>
-          <!-- <input type="text" id = "unit" placeholder="Unit" class="tags"> -->
-          </table>
-          </table>
-          <table><tr><td>           
-          <input type="text" id = "item_name3" name = "item_name" placeholder="Item name"></td><td>
-          <input type="number" id = "quantity3" name = "quantity" placeholder="Quantity"></td><td>
-          <input type="number" id = "price3" name = "price" placeholder="Price"></td></tr>
-          <!-- <input type="text" id = "unit" placeholder="Unit" class="tags"> -->
-          </table>
+
           <button class="btn" type= "submit" name="submit" onclick="place_order()" >Add</button>
           
       </div>  
@@ -122,6 +92,17 @@ function place_order()
  
   </div>           
 
+
+<table id = "mytable"  class = "striped">
+    <thead>
+          <tr>
+              <th data-field="item_name">Title</th>
+              <th data-field="quantity">Description</th>
+              <th data-field="price">Amount</th>
+          </tr>
+        </thead>
+
+ </table>
 
 
 

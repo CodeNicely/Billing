@@ -48,8 +48,10 @@
    
 // });
 
-//$( document ).ready(function() {
-function showdata(){
+$( document ).ready(function() {
+
+
+
 
   var response_data=  {{ expense_array | safe }};
         
@@ -115,8 +117,8 @@ function showdata(){
 }
 
 
-}
-//});
+
+});
 
 
 
@@ -165,7 +167,7 @@ function showdata(){
             <form>
             <input type="date" name="start_date">
             <input type="date" name="end_date">
-             <center><a class=" waves-effect waves-light btn" id="show" onclick=showdata() name="show">Show Details</a>
+             <center><a class=" waves-effect waves-light btn" id="show" onclick="showdata()" name="show">Show Details</a>
 <br><br>
             </form>
           </ul>

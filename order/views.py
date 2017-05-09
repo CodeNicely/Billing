@@ -14,9 +14,19 @@ def place_orders(request):
 		render(request,"place_orders.html",{})
 	else:
 		customer_name=request.POST.get("customer_name")
+		
+		total = float(quantity)*float(price)
 
-		print customer_name
+		rand = random.randint(100,999)
+		order_id = "BS"+str(rand)
 
+		print order_id
+
+
+		item_list=item_data.objects.values_list(item_name)
+		print item_list
+
+ 
 	return render(request,"place_orders.html",{})
 
 
